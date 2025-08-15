@@ -114,13 +114,44 @@ npm start
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+We welcome contributions from the community! This project is designed to be extensible and there are many exciting features that could be added. Here are some ideas to get you started:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### 🌟 Feature Ideas
+- **Multiplayer Mode**: Add real-time PvP battles using WebSockets
+- **New Characters**: Design and implement additional fighters with unique movesets
+- **Special Moves**: Add character-specific special attacks and combos
+- **Tournament Mode**: Create bracket-style tournaments
+- **Online Leaderboards**: Track high scores and win streaks
+- **Character Customization**: Allow players to customize fighter appearance
+- **New Stages**: Add more battle arenas with interactive elements
+- **Sound Effects**: Enhance audio with character voices and impact sounds
+- **Story Mode**: Create a single-player campaign with cutscenes
+- **Training Mode**: Add a practice area for learning combos
+
+### 🛠️ Technical Improvements
+- **Performance Optimization**: Improve frame rates and reduce bundle size
+- **Mobile Enhancements**: Better touch controls and haptic feedback
+- **Accessibility**: Enhanced screen reader support and colorblind-friendly options
+- **Internationalization**: Multi-language support
+- **Save System**: Local storage for progress and settings
+
+### Getting Started with Contributing
+
+1. **Fork the repository** and clone your fork
+2. **Create a feature branch** (`git checkout -b feature/your-feature-name`)
+3. **Install dependencies** (`npm install`)
+4. **Start the development server** (`npm run dev`)
+5. **Make your changes** and test thoroughly
+6. **Commit your changes** with descriptive messages
+7. **Push to your fork** and create a Pull Request
+
+### Code Style
+- Use TypeScript for type safety
+- Follow existing naming conventions
+- Add comments for complex game logic
+- Test on both desktop and mobile devices
+
+For major features like multiplayer or new game modes, please open an issue first to discuss the implementation approach.
 
 ## 📄 License
 
@@ -136,6 +167,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Live Demo**: [Play Street Fighter](https://your-deployment-url.vercel.app)
 - **Creator**: [Vimal](https://vimalsreal.com)
+- **Inspired by**: [David Brandau's Friedrichshain Connection](https://medium.com/@david.brandau/friedrichshain-connection-how-i-built-a-retro-fighting-game-with-ai-and-zero-code-02167f6a2efc)
+- **GitHub Repository**: [Source Code](https://github.com/vimalsreal/streetfighter)
 
 ---
 
