@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react"
 
 type SoundContextType = {
   isMuted: boolean
@@ -16,40 +16,48 @@ export const useSoundContext = () => useContext(SoundContext)
 
 export function SoundProvider({ children }: { children: ReactNode }) {
   const [isMuted, setIsMuted] = useState(false)
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const isInitializedRef = useRef(false)
 
   useEffect(() => {
-    // Create audio element
-    const audioElement = new Audio("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/John-Cena-Theme-mRWzCc16D78WE7ZsdK8aWMSNUJ5Wo5.mp3")
+    if (isInitializedRef.current || audioRef.current) return
+
+    const audioElement = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/John-Cena-Theme-mRWzCc16D78WE7ZsdK8aWMSNUJ5Wo5.mp3",
+    )
     audioElement.loop = true
-    setAudio(audioElement)
+    audioElement.volume = 0.5 // Set reasonable volume level
+    audioRef.current = audioElement
+    isInitializedRef.current = true
 
     // Clean up on unmount
     return () => {
-      if (audioElement) {
-        audioElement.pause()
-        audioElement.src = ""
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.src = ""
+        audioRef.current = null
       }
+      isInitializedRef.current = false
     }
   }, [])
 
   useEffect(() => {
-    if (!audio) return
+    if (!audioRef.current) return
 
     if (isMuted) {
-      audio.pause()
+      audioRef.current.pause()
     } else {
-      // Only play if the document has been interacted with
-      const playPromise = audio.play()
+      if (audioRef.current.paused) {
+        const playPromise = audioRef.current.play()
 
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          // Auto-play was prevented, we'll need user interaction
-          console.log("Audio playback was prevented:", error)
-        })
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.log("[v0] Audio playback was prevented:", error)
+          })
+        }
       }
     }
-  }, [audio, isMuted])
+  }, [isMuted])
 
   const toggleMute = () => {
     setIsMuted((prev) => !prev)

@@ -186,7 +186,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Inspired from [David Brandau](https://medium.com/@david.brandau/street-fighter-retro-game-development)
+- Inspired by classic Street Fighter gameplay mechanics
 - Built with modern web technologies for cross-platform compatibility
 - Special thanks to the React and Next.js communities
 
