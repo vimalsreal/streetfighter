@@ -16,13 +16,18 @@ export interface Fighter {
   hitSprite?: string
   useSingleSprite?: boolean
   specialMove: string
+  // Enhanced combat stats
+  speed: number
+  power: number
+  defense: number
+  agility: number
 }
 
 export const fighters: Fighter[] = [
   {
-    id: "the-schorsch",
+    id: "sumo-shiro",
     name: "Sumo Shiro",
-    description: "The red-hooded brawler with devastating power",
+    description: "A heavyweight champion with devastating grappling techniques and thunderous strikes",
     portrait: "/images/fighters/portrait-theschorsch.png",
     sprite: "/images/fighters/thegeorg_stand.png",
     punchSprite: "/images/fighters/thegeorg_punch.png",
@@ -35,12 +40,16 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/thegeorg_won.png",
     hitSprite: "/images/fighters/thegeorg_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Sumo Thunder Punch",
+    specialMove: "Thunder Slam",
+    speed: 6,
+    power: 9,
+    defense: 8,
+    agility: 4,
   },
   {
-    id: "dave-radau",
+    id: "bobby-noodles",
     name: "Bobby Noodles",
-    description: "The cool-headed fighter with precision strikes",
+    description: "Master of fluid combat with lightning-fast noodle-whip techniques",
     portrait: "/images/fighters/portrait-daveradau.png",
     sprite: "/images/fighters/dave-radau-stand.png",
     punchSprite: "/images/fighters/dave-radau-punch.png",
@@ -53,12 +62,16 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/dave-radau-won.png",
     hitSprite: "/images/fighters/daveradau_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Noodle Whip Kick",
+    specialMove: "Noodle Tornado",
+    speed: 8,
+    power: 7,
+    defense: 6,
+    agility: 9,
   },
   {
-    id: "jensator",
+    id: "cheeseman",
     name: "Cheeseman",
-    description: "The cap-wearing technician with unmatched speed",
+    description: "The dairy destroyer with razor-sharp cheese-based combat techniques",
     portrait: "/images/fighters/portrait-jensator.png",
     sprite: "/images/fighters/jensator-stand.png",
     punchSprite: "/images/fighters/jensator-punch.png",
@@ -71,12 +84,16 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/jensator-won.png",
     hitSprite: "/images/fighters/jensator_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Cheese Grater Uppercut",
+    specialMove: "Cheddar Crusher",
+    speed: 7,
+    power: 8,
+    defense: 7,
+    agility: 7,
   },
   {
-    id: "justus-jonas",
+    id: "randy-omelette",
     name: "Randy Omelette",
-    description: "The mysterious detective with unpredictable moves",
+    description: "Culinary combat expert specializing in breakfast-based battle techniques",
     portrait: "/images/fighters/portrait-justusjonas.png",
     sprite: "/images/fighters/justusjonas_stand.png",
     punchSprite: "/images/fighters/justusjonas_punch.png",
@@ -89,12 +106,16 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/justusjonas_won.png",
     hitSprite: "/images/fighters/justusjonas_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Omelette Flip Combo",
+    specialMove: "Scrambled Strike",
+    speed: 8,
+    power: 6,
+    defense: 7,
+    agility: 8,
   },
   {
-    id: "paddy",
+    id: "sam-sneaky",
     name: "Sam Sneaky",
-    description: "The blue warrior with balanced offense and defense",
+    description: "Shadow warrior with unmatched stealth and precision strike capabilities",
     portrait: "/images/fighters/portrait-paddy.png",
     sprite: "/images/fighters/paddy_stand.png",
     punchSprite: "/images/fighters/paddy_punch.png",
@@ -107,12 +128,16 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/paddy_won.png",
     hitSprite: "/images/fighters/paddy_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Sneaky Shadow Strike",
+    specialMove: "Shadow Assault",
+    speed: 9,
+    power: 7,
+    defense: 6,
+    agility: 9,
   },
   {
-    id: "nico-rohstahl",
+    id: "omega-babu",
     name: "Omega Babu",
-    description: "The steel-willed fighter with unbreakable defense",
+    description: "The ultimate fighter with balanced mastery across all combat disciplines",
     portrait: "/images/fighters/portrait-nicorohstahl.png",
     sprite: "/images/fighters/nicorohstahl_stand.png",
     punchSprite: "/images/fighters/nicorohstahl_punch.png",
@@ -125,6 +150,22 @@ export const fighters: Fighter[] = [
     wonSprite: "/images/fighters/nicorohstahl_won.png",
     hitSprite: "/images/fighters/nicorohstahl_gotpunched.png",
     useSingleSprite: true,
-    specialMove: "Babu Power Slam",
+    specialMove: "Omega Devastation",
+    speed: 8,
+    power: 9,
+    defense: 9,
+    agility: 8,
   },
 ]
+
+export const getFighterById = (id: string): Fighter | undefined => {
+  return fighters.find((fighter) => fighter.id === id)
+}
+
+export const getFightersByPowerLevel = (): Fighter[] => {
+  return [...fighters].sort((a, b) => b.power - a.power)
+}
+
+export const getFightersBySpeed = (): Fighter[] => {
+  return [...fighters].sort((a, b) => b.speed - a.speed)
+}
