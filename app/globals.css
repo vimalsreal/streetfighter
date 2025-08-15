@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "NineteenNinetySeven";
+  src: url("/fonts/NineteenNinetySeven.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  image-rendering: pixelated;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.game-title {
+  font-family: "NineteenNinetySeven", "Press Start 2P", monospace;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #ffaa00, #ffff00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), 0 0 10px #ff6b00, 0 0 20px #ff6b00;
+  letter-spacing: -1px;
+}
+
+.game-text {
+  font-family: "NineteenNinetySeven", "Press Start 2P", monospace;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.blink {
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.power-bar {
+  height: 20px;
+  border: 4px solid white;
+  position: relative;
+}
+
+.power-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ff0000, #ff6b00);
+  transition: width 0.3s;
+}
+
+/* Remove the character class styles that might be conflicting */
+/* Add new animation keyframes */
+@keyframes fighter-jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fighter-punch {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fighter-kick {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.character-select-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.character-portrait {
+  width: 100px;
+  height: 100px;
+  border: 4px solid #333;
+  transition: all 0.2s;
+}
+
+.character-portrait.selected {
+  border-color: #ff6b00;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ff6b00;
+}
+
+/* Adding mobile landscape orientation styles for better gameplay */
+@media screen and (max-width: 768px) {
+  @media (orientation: landscape) {
+    /* Optimize fight screen for landscape mobile */
+    .fight-screen {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Adjust mobile controls for landscape */
+    .mobile-controls {
+      padding: 8px 16px;
+    }
+  }
+
+  /* PC gameplay suggestion styles */
+  .pc-suggestion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid #ff6b00;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    max-width: 300px;
+    font-family: "NineteenNinetySeven", monospace;
+  }
+
+  .pc-suggestion h3 {
+    color: #ff6b00;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .pc-suggestion p {
+    color: white;
+    font-size: 10px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .pc-suggestion button {
+    background: #ff6b00;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    font-family: "NineteenNinetySeven", monospace;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .pc-suggestion button:hover {
+    background: #ffaa00;
+  }
+}
+
+/* Force landscape orientation hint */
+.rotate-device {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+  text-align: center;
+  font-family: "NineteenNinetySeven", monospace;
+}
