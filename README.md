@@ -189,6 +189,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by classic Street Fighter gameplay mechanics
 - Built with modern web technologies for cross-platform compatibility
 - Special thanks to the React and Next.js communities
+- **Original Inspiration**: [David Brandau](https://medium.com/@david.brandau) for his innovative approach to AI-powered game development
+- **Technical Foundation**: Concepts derived from David Brandau's exploration of retro fighting games with modern web technologies
 
 ## 🔗 Links
 
