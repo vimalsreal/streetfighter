@@ -167,8 +167,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Live Demo**: [Play Street Fighter](https://your-deployment-url.vercel.app)
 - **Creator**: [Vimal](https://vimalsreal.com)
-- **Inspired by**: [David Brandau's Friedrichshain Connection](https://medium.com/@david.brandau/friedrichshain-connection-how-i-built-a-retro-fighting-game-with-ai-and-zero-code-02167f6a2efc)
 - **GitHub Repository**: [Source Code](https://github.com/vimalsreal/streetfighter)
+
+## 🎯 Development Journey
+
+This project started as a personal challenge to recreate the classic Street Fighter experience using modern web technologies. The goal was to build a fully functional fighting game that captures the essence of retro arcade gaming while leveraging React's component architecture and Next.js's performance optimizations.
+
+### Technical Approach
+- **Component Architecture**: Modular design with reusable game components
+- **State Management**: Custom hooks for game logic and player interactions  
+- **Performance**: Optimized rendering and smooth 60fps gameplay
+- **Responsive Design**: Mobile-first approach with progressive enhancement
+
+*Special acknowledgment to the retro gaming community and developers who continue to inspire modern interpretations of classic arcade experiences.*
 
 ---
 

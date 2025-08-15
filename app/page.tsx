@@ -78,7 +78,7 @@ export default function HomePage() {
           <p className="game-text text-xs sm:text-sm md:text-base text-center text-white">
             Inspired from -{" "}
             <a
-              href="https://medium.com/@david.brandau/friedrichshain-connection-how-i-built-a-retro-fighting-game-with-ai-and-zero-code-02167f6a2efc"
+              href="https://medium.com/@david.brandau/street-fighter-retro-game-development"
               target="_blank"
               rel="noopener noreferrer"
               className="text-yellow-400 hover:text-yellow-300 underline"
